@@ -6,7 +6,7 @@
       class="flex items-center px-8 h-full"
     >
       <font-awesome-icon :icon="['fas', 'search']" class="mr-3" />
-      <span><span class="text-brand-green-1">1653</span> job matched</span>
+      <span><span class="text-brand-green-1">1653</span> jobs matched</span>
     </div>
   </div>
 </template>
