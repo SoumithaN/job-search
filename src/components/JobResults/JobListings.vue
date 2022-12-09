@@ -1,5 +1,5 @@
 <template>
-  <main class="flex-auto p-8 bg-brand-gray-2">
+  <main class="jobsbackground">
     <ol>
       <JobListing />
       <JobListing />
@@ -18,3 +18,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.jobsbackground {
+  flex: 1 1 auto;
+  padding: 2rem;
+  background-color: gray;
+}
+</style>

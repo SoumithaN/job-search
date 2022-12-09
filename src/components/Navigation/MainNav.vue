@@ -4,9 +4,9 @@
       <div
         class="flex flex-nowrap h-full px-8 mx-auto border-b border-solid border-brand-gray-1"
       >
-        <a :href="url" class="flex items-center h-full text-xl">{{
+        <router-link to="/" class="flex items-center h-full text-xl">{{
           company
-        }}</a>
+        }}</router-link>
         <nav class="h-full ml-12">
           <ul class="flex h-full p-0 m-0 list-none">
             <li
@@ -21,6 +21,9 @@
             </li>
           </ul>
         </nav>
+        <div class="flex flex-nowrap border-solid px-8 items-center">
+          <button @click="jobspage">Job Results</button>
+        </div>
         <div class="flex items-center ml-auto h-full">
           <ProfileImage v-if="isLoggedIn" data-test="profile-image" />
           <action-button
@@ -51,7 +54,6 @@ export default {
   data() {
     return {
       company: "Bright Career",
-      url: "https://www.google.com",
       menuItems: [
         "Teams",
         "Locations",
@@ -74,6 +76,9 @@ export default {
   methods: {
     loginUser() {
       this.isLoggedIn = true;
+    },
+    jobspage() {
+      this.$router.push("/jobs/results");
     },
   },
 };

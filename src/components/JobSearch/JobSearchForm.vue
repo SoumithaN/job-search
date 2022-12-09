@@ -1,17 +1,12 @@
 <template>
-  <form
-    class="flex items-center w-full h-12 mt-14 border border-solid border-brand-gray-3 rounded-3xl"
-  >
+  <form class="formoutline">
     <font-awesome-icon :icon="['fas', 'search']" class="ml-4 mr-3" />
     <div class="flex flex-nowrap flex-1 h-full text-base font-light">
       <div class="relative flex items-center flex-1 h-full pr-3">
         <label class="absolute left-0 -top-10">Role</label>
         <TextInput v-model="role" placeholder="Software Engineer" />
       </div>
-      <span
-        class="flex items-center h-full px-3 border-l border-r border-brand-gray-3 bg-brand-gray-2"
-        >in
-      </span>
+      <span class="formin">in </span>
       <div class="relative flex items-center flex-1 h-full pl-3">
         <label class="absolute left-0 -top-10">Where?</label>
         <TextInput v-model="location" placeholder="Hyderabad" />
@@ -36,13 +31,30 @@ export default {
       location: "",
     };
   },
-  /*methods: {
-    updaterole(payload) {
-      this.role = payload;
-    },
-    updateLocation(payload) {
-      this.location = payload;
-    },
-  },*/
 };
 </script>
+
+<style scoped>
+.formoutline {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 3rem;
+  margin-top: 3.5rem;
+  border-width: 1px;
+  border-style: solid;
+  border-color: gray;
+  border-radius: 1.5rem;
+}
+.formin {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-color: gray;
+  background-color: white;
+}
+</style>

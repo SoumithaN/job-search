@@ -1,9 +1,6 @@
 <template>
   <li class="mb-7">
-    <router-link
-      to="/jobs/results/1"
-      class="block mx-auto bg-white border border-solid border-brand-gray-2 rounded hover:shadow-gray"
-    >
+    <router-link to="/jobs/results/1" class="jobsoutline">
       <div class="pt-5 pb-2 mx-8 border-b border-solid border-brand-gray-2">
         <h2 class="mb-2 text-2xl">
           Techinal Program Manager, Perception,Augmented Reality
@@ -46,3 +43,18 @@ export default {
   name: "JobListing",
 };
 </script>
+
+<style scoped>
+.jobsoutline {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border-style: solid;
+  border-color: gray;
+  border-radius: 0.25rem;
+}
+.jobsoutline:hover {
+  box-shadow: 0px 8px 30px;
+}
+</style>
