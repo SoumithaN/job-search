@@ -1,19 +1,21 @@
 <template>
-  <header :class="['w-full', 'text-sm', headerHeightClass]">
-    <div class="fixed top-0 left-0 h-16 w-full bg-white">
-      <div
-        class="flex flex-nowrap h-full px-8 mx-auto border-b border-solid border-brand-gray-1"
-      >
-        <router-link to="/" class="flex items-center h-full text-xl">{{
-          company
-        }}</router-link>
-        <nav class="h-full ml-12">
-          <ul class="flex h-full p-0 m-0 list-none">
+  <header :class="headerHeightClass">
+    <div class="head-container">
+      <div class="nav-container">
+        <font-awesome-icon
+          :icon="['fas', 'bars']"
+          class="toggle"
+          @click="navDisplay"
+        />
+        <router-link to="/" class="company-name">{{ company }}</router-link>
+        <nav id="nav">
+          <ul>
             <li
               v-for="menuItem in menuItems"
               :key="menuItem.text"
               class="h-full ml-9 first:ml-0"
               data-test="main-nav-list-item"
+              @click="hideNav"
             >
               <router-link
                 :to="menuItem.url"
@@ -80,6 +82,99 @@ export default {
     jobspage() {
       this.$router.push("/jobs/results");
     },
+    navDisplay() {
+      let navbar = document.getElementById("nav");
+      navbar.classList.toggle("show");
+    },
+    hideNav() {
+      let navbar = document.getElementById("nav");
+      navbar.classList.remove("show");
+    },
   },
 };
 </script>
+
+<style scoped>
+header {
+  width: 100%;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.head-container {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 4rem;
+  width: 100%;
+  background-color: white;
+}
+.nav-container {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: light gray;
+}
+.company-name {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.toggle {
+  width: 30px;
+  margin: auto 0;
+  display: none;
+}
+nav {
+  position: absolute;
+  float: left;
+  height: 100%;
+  margin-left: 9rem;
+}
+nav ul {
+  display: flex;
+  height: 100%;
+  padding: 0%;
+  margin: 0%;
+  list-style: none;
+}
+nav li {
+  margin-left: 2.25rem;
+  height: 100%;
+  font-weight: 600;
+}
+@media screen and (max-width: 500px) {
+  .toggle {
+    display: inline-block;
+  }
+  .nav-container {
+    padding: 0 0.5rem;
+  }
+  nav {
+    display: none;
+    margin-left: 0;
+    margin-top: 4rem;
+  }
+  nav ul {
+    flex-direction: column;
+  }
+  nav li {
+    margin-left: 0;
+    background-color: white;
+    font-weight: 600;
+  }
+  nav.hide {
+    display: none;
+  }
+  nav.show {
+    display: block;
+  }
+}
+</style>
