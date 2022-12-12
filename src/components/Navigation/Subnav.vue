@@ -1,22 +1,21 @@
 <template>
   <div class="subnav">
-    <div
-      v-if="onJobReturnsPage"
-      data-test="job-count"
-      class="flex items-center px-8 h-full"
-    >
-      <font-awesome-icon :icon="['fas', 'search']" class="mr-3" />
-      <span><span class="jobs-number">1653</span> jobs matched</span>
+    <div class="flex items-center h-full px-8">
+      <div v-if="onJobResultsPage" data-test="job-count">
+        <font-awesome-icon :icon="['fas', 'search']" class="mr-3" />
+        <span><span class="jobs-number">1653</span> jobs matched</span>
+      </div>
     </div>
   </div>
 </template>
+
 <script>
 export default {
   name: "Subnav",
-  data() {
-    return {
-      onJobReturnsPage: true,
-    };
+  computed: {
+    onJobResultsPage() {
+      return this.$route.name === "JobResults";
+    },
   },
 };
 </script>

@@ -11,19 +11,19 @@
           <ul class="flex h-full p-0 m-0 list-none">
             <li
               v-for="menuItem in menuItems"
-              :key="menuItem"
+              :key="menuItem.text"
               class="h-full ml-9 first:ml-0"
               data-test="main-nav-list-item"
             >
-              <a href="" class="flex items-center h-full py-2.5">{{
-                menuItem
-              }}</a>
+              <router-link
+                :to="menuItem.url"
+                class="flex items-center h-full py-2.5"
+                >{{ menuItem.text }}</router-link
+              >
             </li>
           </ul>
         </nav>
-        <div class="flex flex-nowrap border-solid px-8 items-center">
-          <button @click="jobspage">Job Results</button>
-        </div>
+        <div class="flex flex-nowrap border-solid px-8 items-center"></div>
         <div class="flex items-center ml-auto h-full">
           <ProfileImage v-if="isLoggedIn" data-test="profile-image" />
           <action-button
@@ -55,12 +55,12 @@ export default {
     return {
       company: "Bright Career",
       menuItems: [
-        "Teams",
-        "Locations",
-        "Life at Bright",
-        "How we hire",
-        "Students",
-        "Jobs",
+        { text: "Teams", url: "/" },
+        { text: "Locations", url: "/" },
+        { text: "Life at Bright", url: "/" },
+        { text: "How we hire", url: "/" },
+        { text: "Students", url: "/" },
+        { text: "Jobs", url: "/jobs/results" },
       ],
       isLoggedIn: false,
     };

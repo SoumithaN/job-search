@@ -37,7 +37,7 @@ export default {
   font-size: 1.125rem;
   line-height: 1.175rem;
   font-weight: 400;
-  outline: 2 solid transparent;
+  outline: 2px solid transparent;
   outline-offset: 2px;
 }
 </style>
