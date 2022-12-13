@@ -69,7 +69,7 @@ section {
 .code {
   color: #d93025;
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (min-width: 320px) and (max-width: 480px) {
   .headline {
     font-size: 2.5rem;
     margin: 1.5rem 0 1.5rem 0;
@@ -79,7 +79,7 @@ section {
     line-height: 2.25rem;
   }
 }
-@media only screen and (min-width: 501px) and (max-width: 1000px) {
+@media only screen and (min-width: 481px) and (max-width: 768px) {
   .headline {
     font-size: 4.7rem;
     margin: 2rem 0 3.5rem 0;

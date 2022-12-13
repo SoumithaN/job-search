@@ -13,7 +13,7 @@
             <li
               v-for="menuItem in menuItems"
               :key="menuItem.text"
-              class="h-full ml-9 first:ml-0"
+              class="menuItems"
               data-test="main-nav-list-item"
               @click="hideNav"
             >
@@ -59,8 +59,8 @@ export default {
       menuItems: [
         { text: "Teams", url: "/" },
         { text: "Locations", url: "/" },
-        { text: "Life at Bright", url: "/" },
-        { text: "How we hire", url: "/" },
+        { text: "Workplace", url: "/" },
+        { text: "Achievements", url: "/" },
         { text: "Students", url: "/" },
         { text: "Jobs", url: "/jobs/results" },
       ],
@@ -127,6 +127,13 @@ header {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.menuItems {
+  height: 100%;
+  margin-left: 2.25rem;
+}
+.menuItems:first-child {
+  margin-left: 0px;
+}
 .toggle {
   width: 30px;
   margin: auto 0;
@@ -150,7 +157,10 @@ nav li {
   height: 100%;
   font-weight: 600;
 }
-@media screen and (max-width: 500px) {
+nav li:first-child {
+  margin-left: 0%;
+}
+@media only screen and (min-width: 320px) and (max-width: 768px) {
   .toggle {
     display: inline-block;
   }
@@ -170,11 +180,23 @@ nav li {
     background-color: white;
     font-weight: 600;
   }
-  nav.hide {
+  .company-name {
+    margin-left: 2rem;
+  }
+  /* nav.hide {
     display: none;
   }
   nav.show {
     display: block;
+  } */
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .menuItems {
+    height: 100%;
+    margin-left: 1.5rem;
+  }
+  .menuItems:first-child {
+    margin-left: 0px;
   }
 }
 </style>

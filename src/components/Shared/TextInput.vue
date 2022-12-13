@@ -39,5 +39,6 @@ export default {
   font-weight: 400;
   outline: 2px solid transparent;
   outline-offset: 2px;
+  border-radius: 1.5rem;
 }
 </style>
