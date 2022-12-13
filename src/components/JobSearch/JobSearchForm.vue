@@ -1,14 +1,14 @@
 <template>
-  <form class="formoutline" @submit.prevent="searchForJobs">
+  <form action="" class="formoutline" @submit.prevent="searchForJobs">
     <font-awesome-icon :icon="['fas', 'search']" class="ml-4 mr-3" />
-    <div class="flex flex-nowrap flex-1 h-full text-base font-light">
-      <div class="relative flex items-center flex-1 h-full pr-3">
-        <label class="absolute left-0 -top-10">Role</label>
+    <div class="form-container">
+      <div class="input-container-1">
+        <label class="absolute left-0 -top-7">Role</label>
         <TextInput v-model="role" placeholder="Software Engineer" />
       </div>
       <span class="formin">in </span>
-      <div class="relative flex items-center flex-1 h-full pl-3">
-        <label class="absolute left-0 -top-10">Where?</label>
+      <div class="input-container-2">
+        <label class="absolute left-0 -top-7">Where?</label>
         <TextInput v-model="location" placeholder="Hyderabad" />
         <ActionButton text="Search" type="secondary" class="rounded-r-3xl" />
       </div>
@@ -43,10 +43,34 @@ export default {
 </script>
 
 <style scoped>
+.form-container {
+  display: flex;
+  flex-wrap: nowrap;
+  flex: 1 1 0%;
+  height: 100%;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.input-container-1 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1 1 0%;
+  height: 100%;
+  padding-right: 0.75rem;
+}
+.input-container-2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1 1 0%;
+  height: 100%;
+  margin-left: 0.75rem;
+}
 .formoutline {
   display: flex;
   align-items: center;
-  width: 100%;
+  /* width: 100%; */
   height: 3rem;
   margin-top: 3.5rem;
   border-width: 1px;
@@ -64,5 +88,11 @@ export default {
   border-right-width: 1px;
   border-color: gray;
   background-color: white;
+}
+@media only screen and (min-width: 501px) and (max-width: 1000px) {
+  form {
+    margin: 0 2rem 0 0;
+    margin-right: 4rem;
+  }
 }
 </style>

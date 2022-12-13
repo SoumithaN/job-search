@@ -1,11 +1,11 @@
 <template>
   <section>
-    <h1 class="font-bold tracking-tighter text-8xl mb-14">
+    <h1 class="headline">
       <span :class="actionClasses">{{ action }}</span>
       <br />
       for everyone
     </h1>
-    <h2 class="text-3xl font-light">Find your next job at bright corp</h2>
+    <h2 class="sub-head">Find your next job at bright corp</h2>
   </section>
 </template>
 <script>
@@ -42,6 +42,21 @@ export default {
 };
 </script>
 <style scoped>
+section {
+  padding-left: 10%;
+}
+.headline {
+  font-weight: 700;
+  letter-spacing: 0em;
+  font-size: 6rem;
+  line-height: 1;
+  margin-bottom: 3.5rem;
+}
+.sub-head {
+  font-weight: 400;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
 .build {
   color: #1a73e8;
 }
@@ -53,5 +68,26 @@ export default {
 }
 .code {
   color: #d93025;
+}
+@media only screen and (max-width: 500px) {
+  .headline {
+    font-size: 2.5rem;
+    margin: 1.5rem 0 1.5rem 0;
+  }
+  .sub-head {
+    font-size: 1.2rem;
+    line-height: 2.25rem;
+  }
+}
+@media only screen and (min-width: 501px) and (max-width: 1000px) {
+  .headline {
+    font-size: 4.7rem;
+    margin: 2rem 0 3.5rem 0;
+  }
+  .sub-head {
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+  }
 }
 </style>
