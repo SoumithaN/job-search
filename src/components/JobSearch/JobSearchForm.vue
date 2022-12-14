@@ -75,7 +75,7 @@ label {
   position: relative;
   display: flex;
   align-items: center;
-  flex: 0.75 0.5 0%;
+  flex: 1 0.5 0%;
   height: 100%;
   padding-right: 0.75rem;
 }
@@ -123,6 +123,7 @@ label {
     width: 100%;
     height: auto;
     border: none;
+    margin-top: 1rem;
     /* padding-top: 1rem; */
     /* margin-left: 1rem; */
   }
@@ -173,6 +174,7 @@ label {
   }
   .botton {
     display: block;
+    margin-right: 5rem;
   }
 }
 
