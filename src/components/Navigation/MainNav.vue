@@ -144,6 +144,7 @@ nav {
   float: left;
   height: 100%;
   margin-left: 9rem;
+  color: gray;
 }
 nav ul {
   display: flex;
@@ -183,12 +184,6 @@ nav li:first-child {
   .company-name {
     margin-left: 2rem;
   }
-  /* nav.hide {
-    display: none;
-  }
-  nav.show {
-    display: block;
-  } */
 }
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   .menuItems {
