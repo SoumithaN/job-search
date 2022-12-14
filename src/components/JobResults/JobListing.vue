@@ -6,12 +6,14 @@
           {{ job.title }}
         </h2>
         <div class="flex flex-row align-middle">
+          <font-awesome-icon :icon="['fas', 'building']" class="mr-2" />
           <div class="mr-5">
             <span>{{ job.organization }}</span>
           </div>
 
           <div>
             <ul>
+              <font-awesome-icon :icon="['fas', 'location-dot']" class="mr-2" />
               <li
                 v-for="location in job.locations"
                 :key="location"
