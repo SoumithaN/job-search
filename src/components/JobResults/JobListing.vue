@@ -1,6 +1,6 @@
 <template>
   <li class="mb-7">
-    <router-link :to="jobPageLink" class="jobsoutline">
+    <router-link :to="jobPageLink" class="jobs-outline">
       <div class="pt-5 pb-2 mx-8 border-b border-solid border-brand-gray-2">
         <h2 class="mb-2 text-2xl">
           {{ job.title }}
@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style scoped>
-.jobsoutline {
+.jobs-outline {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -75,7 +75,7 @@ export default {
   border-color: gray;
   border-radius: 0.25rem;
 }
-.jobsoutline:hover {
+.jobs-outline:hover {
   box-shadow: 0px 8px 30px;
 }
 </style>

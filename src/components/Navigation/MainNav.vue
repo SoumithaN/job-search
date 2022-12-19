@@ -181,8 +181,17 @@ nav li:first-child {
     background-color: white;
     font-weight: 600;
   }
+  nav li:first-child {
+    padding-left: 2rem;
+  }
   .company-name {
     margin-left: 2rem;
+  }
+  nav.hide {
+    display: none;
+  }
+  nav.show {
+    display: block;
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 1024px) {

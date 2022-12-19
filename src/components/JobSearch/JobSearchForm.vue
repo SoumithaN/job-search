@@ -87,18 +87,6 @@ label {
   height: 100%;
   margin-left: 0.75rem;
 }
-/* .formoutline {
-  display: flex;
-  align-items: center;
-   width: 100%; 
-  height: 3rem;
-   margin-top: 3.5rem; 
-  border-width: 1px;
-  border-style: solid;
-  border-color: gray;
-  border-radius: 1.5rem;
-  margin: 3rem 3rem 0;
-} */
 .formin {
   display: flex;
   align-items: center;
@@ -124,8 +112,6 @@ label {
     height: auto;
     border: none;
     margin-top: 1rem;
-    /* padding-top: 1rem; */
-    /* margin-left: 1rem; */
   }
   label {
     position: absolute;

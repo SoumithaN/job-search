@@ -67,11 +67,14 @@ export default {
       const pageNumber = this.currentPage;
       const firstJobIndex = (pageNumber - 1) * 10;
       const lastJobIndex = pageNumber * 10;
+      console.log(this.$route);
       return this.jobs.slice(firstJobIndex, lastJobIndex);
     },
   },
   async mounted() {
+    //const baseUrl = process.env.VUE_APP_API_URL;
     const response = await axios.get(" http://localhost:3000/jobs");
+    // const response = await axios.get(`${baseUrl}/jobs`);
     this.jobs = response.data;
     this.loaderToggle();
   },
