@@ -64,7 +64,6 @@ export default {
         { text: "Students", url: "/" },
         { text: "Jobs", url: "/jobs/results" },
       ],
-      isLoggedIn: false,
     };
   },
   computed: {
@@ -74,11 +73,15 @@ export default {
         "h-32": this.isLoggedIn,
       };
     },
-  },
-  methods: {
-    loginUser() {
-      this.isLoggedIn = true;
+    isLoggedIn() {
+      return this.state.isLoggedIn;
     },
+  },
+
+  methods: {
+    // loginUser() {
+    //   this.isLoggedIn = true;
+    // },
     jobspage() {
       this.$router.push("/jobs/results");
     },
@@ -89,6 +92,9 @@ export default {
     hideNav() {
       let navbar = document.getElementById("nav");
       navbar.classList.remove("show");
+    },
+    loginUser() {
+      this.$store.commit("LOGIN_USER");
     },
   },
 };
