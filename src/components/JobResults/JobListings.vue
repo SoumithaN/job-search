@@ -32,9 +32,10 @@
   </main>
 </template>
 <script>
-import axios from "axios";
 import CSSLoader from "@/components/Shared/CSSLoader.vue";
 import JobListing from "@/components/JobResults/JobListing.vue";
+import { mapActions, mapState } from "vuex";
+import { FETCH_JOBS } from "@/store";
 
 export default {
   name: "JobListings",
@@ -42,12 +43,12 @@ export default {
     JobListing,
     CSSLoader,
   },
-  data() {
-    return {
-      jobs: [],
-      isLoading: true,
-    };
-  },
+  // data() {
+  //   return {
+  //     jobs: [],
+  //     isLoading: true,
+  //   };
+  // },
   computed: {
     currentPage() {
       const pageString = this.$route.query.page || "1";
@@ -70,12 +71,10 @@ export default {
       console.log(this.$route);
       return this.jobs.slice(firstJobIndex, lastJobIndex);
     },
+    ...mapState(["jobs"]),
   },
   async mounted() {
-    // const baseUrl = process.env.VUE_APP_API_URL;
-    const response = await axios.get(" http://localhost:3000/jobs");
-    // const response = await axios.get(`${baseUrl}/jobs`);
-    this.jobs = response.data;
+    // this.$store.dispatch(FETCH_JOBS);
     this.loaderToggle();
   },
   methods: {
@@ -84,6 +83,7 @@ export default {
         this.isLoading = false;
       }, 3000);
     },
+    ...mapActions([FETCH_JOBS]),
   },
 };
 </script>
