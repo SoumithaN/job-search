@@ -76,6 +76,7 @@ export default {
   },
   async mounted() {
     this.FETCH_JOBS();
+    this.loaderToggle();
   },
   methods: {
     loaderToggle() {
