@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-
+export const LOGIN_USER = "LOGIN_USER";
 // const store = createStore({
 //   state() {
 //     return {
@@ -22,7 +22,7 @@ export const state = () => {
   };
 };
 export const mutations = {
-  LOGIN_USER(state) {
+  [LOGIN_USER](state) {
     state.isLoggedIn = true;
   },
 };
