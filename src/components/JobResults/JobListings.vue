@@ -3,7 +3,7 @@
     <div v-if="isLoading" class="flex h-screen items-center justify-center">
       <CSSLoader />
     </div>
-    <ol v-else>
+    <ol>
       <job-listing v-for="job in displayedJobs" :key="job.id" :job="job" />
     </ol>
     <div class="mt-8 mx-auto">
@@ -32,6 +32,7 @@
   </main>
 </template>
 <script>
+// import axios from "axios";
 import CSSLoader from "@/components/Shared/CSSLoader.vue";
 import JobListing from "@/components/JobResults/JobListing.vue";
 import { mapActions, mapState } from "vuex";
@@ -68,14 +69,13 @@ export default {
       const pageNumber = this.currentPage;
       const firstJobIndex = (pageNumber - 1) * 10;
       const lastJobIndex = pageNumber * 10;
-      console.log(this.$route);
+      // console.log(this.$route);
       return this.jobs.slice(firstJobIndex, lastJobIndex);
     },
     ...mapState(["jobs"]),
   },
   async mounted() {
-    // this.$store.dispatch(FETCH_JOBS);
-    this.loaderToggle();
+    this.FETCH_JOBS();
   },
   methods: {
     loaderToggle() {
