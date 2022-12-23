@@ -3,7 +3,7 @@
     <div v-if="isLoading" class="flex h-screen items-center justify-center">
       <CSSLoader />
     </div>
-    <ol>
+    <ol v-else>
       <job-listing v-for="job in displayedJobs" :key="job.id" :job="job" />
     </ol>
     <div class="mt-8 mx-auto">
@@ -44,12 +44,12 @@ export default {
     JobListing,
     CSSLoader,
   },
-  // data() {
-  //   return {
-  //     jobs: [],
-  //     isLoading: true,
-  //   };
-  // },
+  data() {
+    return {
+      //     jobs: [],
+      isLoading: true,
+    };
+  },
   computed: {
     currentPage() {
       const pageString = this.$route.query.page || "1";
@@ -75,8 +75,8 @@ export default {
     ...mapState(["jobs"]),
   },
   async mounted() {
-    this.FETCH_JOBS();
     this.loaderToggle();
+    this.FETCH_JOBS();
   },
   methods: {
     loaderToggle() {
