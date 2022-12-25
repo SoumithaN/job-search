@@ -1,23 +1,55 @@
 <template>
-  <div class="grid-container">
-    <div class="headLine"><Headline /> <job-search-form /></div>
-    <div class="headLineImg">
-      <img
-        class="w-80 h-80 object-contain"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/2367px-Vue.js_Logo_2.svg.png"
-      />
+  <main>
+    <div class="grid-container">
+      <div class="headLine"><Headline /> <job-search-form /></div>
+      <div class="headLineImg">
+        <img
+          class="w-80 h-80 object-contain"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/2367px-Vue.js_Logo_2.svg.png"
+        />
+      </div>
     </div>
-  </div>
+    <div class="pt-10">
+      <spotlight class="flex flex-row justify-center pb-16">
+        <template #default="{ img, title, description }">
+          <router-link
+            to="/jobs/results"
+            class="flex flex-col mx-5 border rounded-lg w-72 bg-brand-gray-2 h-96"
+          >
+            <img :src="img" class="object-contain" />
+
+            <div class="h-48 px-6 py-4 mt-3">
+              <h3 class="text-lg font-medium">
+                {{ title }}
+              </h3>
+
+              <p class="mt-3 text-sm">
+                {{ description }}
+              </p>
+            </div>
+
+            <router-link
+              to="/jobs/results"
+              class="px-6 pb-4 text-sm text-brand-blue-1"
+              >See jobs</router-link
+            >
+          </router-link>
+        </template>
+      </spotlight>
+    </div>
+  </main>
 </template>
 
 <script>
 import Headline from "@/components/JobSearch/Headline.vue";
 import JobSearchForm from "@/components/JobSearch/JobSearchForm.vue";
+import Spotlight from "@/components/JobSearch/Spotlight.vue";
 export default {
   name: "Hero",
   components: {
     Headline,
     JobSearchForm,
+    Spotlight,
   },
 };
 </script>

@@ -60,7 +60,7 @@ export default {
     return {
       company: "Bright Career",
       menuItems: [
-        { text: "Teams", url: "/" },
+        { text: "Teams", url: "/teams" },
         { text: "Locations", url: "/" },
         { text: "Workplace", url: "/" },
         { text: "Achievements", url: "/" },
