@@ -35,8 +35,8 @@
 // import axios from "axios";
 import CSSLoader from "@/components/Shared/CSSLoader.vue";
 import JobListing from "@/components/JobResults/JobListing.vue";
-import { mapActions, mapState } from "vuex";
-import { FETCH_JOBS } from "@/store";
+import { mapActions, mapGetters } from "vuex";
+import { FETCH_JOBS, FILTERED_JOBS_BY_ORGANIZATIONS } from "@/store/constants";
 
 export default {
   name: "JobListings",
@@ -62,17 +62,22 @@ export default {
     },
     nextPage() {
       const nextPage = this.currentPage + 1;
-      const maxPage = Math.ceil(this.jobs.length / 10);
+      const maxPage = Math.ceil(
+        this.FILTERED_JOBS_BY_ORGANIZATIONS.length / 10
+      );
       return nextPage <= maxPage ? nextPage : undefined;
     },
     displayedJobs() {
       const pageNumber = this.currentPage;
       const firstJobIndex = (pageNumber - 1) * 10;
       const lastJobIndex = pageNumber * 10;
-      // console.log(this.$route);
-      return this.jobs.slice(firstJobIndex, lastJobIndex);
+      return this.FILTERED_JOBS_BY_ORGANIZATIONS.slice(
+        firstJobIndex,
+        lastJobIndex
+      );
     },
-    ...mapState(["jobs"]),
+    ...mapGetters([FILTERED_JOBS_BY_ORGANIZATIONS]),
+    // ...mapState(["jobs"]),
   },
   async mounted() {
     this.loaderToggle();
