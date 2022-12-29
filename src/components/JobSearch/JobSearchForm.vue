@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 import ActionButton from "@/components/Shared/ActionButton.vue";
 import TextInput from "@/components/Shared/TextInput.vue";
 
@@ -26,20 +28,32 @@ export default {
     ActionButton,
     TextInput,
   },
-  data() {
-    return {
-      role: "",
-      location: "",
-    };
-  },
-  methods: {
-    searchForJobs() {
-      this.$router.push({
+  setup() {
+    const router = useRouter();
+    const role = ref("");
+    const location = ref("");
+    const searchForJobs = () => {
+      router.push({
         name: "JobResults",
-        query: { role: this.role, location: this.location },
+        query: { role: role.value, location: location.value },
       });
-    },
+    };
+    return { role, location, searchForJobs };
   },
+  // data() {
+  //   return {
+  //     role: "",
+  //     location: "",
+  //   };
+  // },
+  // methods: {
+  //   searchForJobs() {
+  //     this.$router.push({
+  //       name: "JobResults",
+  //       query: { role: this.role, location: this.location },
+  //     });
+  //   },
+  // },
 };
 </script>
 
