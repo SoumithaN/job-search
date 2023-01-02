@@ -8,3 +8,4 @@ export const UNIQUE_JOB_TYPES = "UNIQUE_JOB_TYPES";
 export const FILTERED_JOBS = "FILTERED_JOBS";
 export const INCLUDE_JOB_BY_JOB_TYPE = "INCLUDE_JOB_BY_JOB_TYPE";
 export const INCLUDE_JOB_BY_ORGANIZATION = "INCLUDE_JOB_BY_ORGANIZATION";
+//dynamic reference for names of the methods.

@@ -94,12 +94,6 @@ export default {
       let navbar = document.getElementById("nav");
       navbar.classList.remove("show");
     },
-    // loginUser() {
-    //   this.isLoggedIn = true;
-    // },
-    // loginUser() {
-    //   this.$store.commit(LOGIN_USER);
-    // },
     // LOGIN_USER() {
     //   this.$store.commit(LOGIN_USER);
     // },

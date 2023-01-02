@@ -11,22 +11,36 @@
 </template>
 
 <script>
+import { ref, onMounted } from "vue";
 import axios from "axios";
 
 export default {
   name: "Spotlight",
-  data() {
-    return {
-      spotlights: [],
+  setup() {
+    const spotlights = ref([]);
+
+    const getSpotlights = async () => {
+      // const baseUrl = process.env.VUE_APP_API_URL;
+      //const url = `${baseUrl}/spotlights`;
+      const response = await axios.get("http://localhost:3000/spotlights");
+      spotlights.value = response.data;
     };
+    onMounted(getSpotlights);
+
+    return { spotlights };
   },
-  async mounted() {
-    // const baseUrl = process.env.VUE_APP_API_URL;
-    // const url = `${baseUrl}/spotlights`;
-    // const response = await axios.get(url);
-    // this.spotlights = response.data;
-    const response = await axios.get("http://localhost:3000/spotlights");
-    this.spotlights = response.data;
-  },
+  // data() {
+  //   return {
+  //     spotlights: [],
+  //   };
+  // },
+  // async mounted() {
+  //   // const baseUrl = process.env.VUE_APP_API_URL;
+  //   // const url = `${baseUrl}/spotlights`;
+  //   // const response = await axios.get(url);
+  //   // this.spotlights = response.data;
+  //   const response = await axios.get("http://localhost:3000/spotlights");
+  //   this.spotlights = response.data;
+  // },
 };
 </script>
